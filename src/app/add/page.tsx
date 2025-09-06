@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import { memo } from "react"
+import { useRouter } from "next/navigation"
 
 const schema = yup
   .object({
@@ -15,6 +16,7 @@ const schema = yup
 
 
 const AddUser = () => {
+  const router = useRouter()
   const {
     register,
     handleSubmit,
@@ -31,6 +33,7 @@ const AddUser = () => {
     body: JSON.stringify(data),
   })
   reset()
+  router.replace("/")
 }
 
 
